@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti Vivi</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5e1c8;
+            font-family: 'Georgia', serif;
+            margin: 0;
+        }
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f5e1c8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            z-index: 10;
+        }
+        .welcome-screen img {
+            width: 300px;
+            border-radius: 10px;
+        }
+        .welcome-screen p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .container {
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            display: none;
+        }
+        .heart {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            transform: rotate(-45deg);
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+            transition: transform 0.5s, width 0.5s, height 0.5s;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -20px;
+            left: 0;
+        }
+        .heart::after {
+            left: 20px;
+            top: 0;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.1) rotate(-45deg); }
+        }
+        .letter {
+            width: 300px;
+            height: 0;
+            background: #fff8dc;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 0 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            font-size: 16px;
+            text-align: justify;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .letter.open {
+            height: 570px;
+            padding: 20px;
+        }
+        .toca{
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-screen" onclick="hideWelcomeScreen()">
+        <img src="./img/xdd.png" alt="Bienvenida">
+        <p>Toca la ratita para continuar</p>
+    </div>
+    <div class="container" id="mainContent">
+        <div class="toca">Toca el Corazon</div> <br><br>
+        <div class="heart" id="heart" onclick="toggleLetter()"></div>
+        <div class="letter" id="letter">
+            <p>Holi, sabes que me encanta este tipo de cosas JSKDJSDK</p>
+            <p>El motivo de la tarjeta es felicitarte por tu día especial (El dia de la Mujer), yyy que te volviste muy especial para mi :3 </p>
+            <p>Valoro mucho el esfuerzo que haces por todo y todos, no dejas de sorprenderme cada dia, siento que cada dia aprendo mas de ti por tu forma de ser con las personas por tu forma de ser basicamente, me enseñas mucho y siempre me andas diciendo que esta bien o que no, y muchas veces creo que me regañas por mi mal comportamiento (Pido perdon), el punto es que eres una gran Mujer y genial persona :3, LUCHONAAAAAA </p>
+            <p>Me alegra mucho haberte conocido!! ♥ </p>
+            <p>Atte: El Lesbiano xd</p>
+        </div>
+    </div>
+
+    <script>
+        function hideWelcomeScreen() {
+            document.querySelector('.welcome-screen').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'flex';
+        }
+        function toggleLetter() {
+            let letter = document.getElementById('letter');
+            letter.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
